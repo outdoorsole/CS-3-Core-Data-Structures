@@ -14,13 +14,13 @@ def decode(str_num, base):
     # Reverse string
     reversed_str = str_num[::-1]
 
-    exponent = 0
     index = 0
+    exponent = 0
     total = 0
 
     while index < len(reversed_str):
         if reversed_str[index] == "1":
-            total += pow(2, exponent)
+            total += pow(base, exponent)
         print("total:", total)
         index += 1
         exponent += 1
