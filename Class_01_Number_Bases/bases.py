@@ -21,6 +21,35 @@ def decode(str_num, base):
     exponent = 0
     total = 0
 
+    if base == 16:
+        hex_keys = {
+            "0": 0,
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 7,
+            "8": 8,
+            "9": 9,
+            "a": 10,
+            "b": 11,
+            "c": 12,
+            "d": 13,
+            "e": 14,
+            "f": 15
+        }
+
+        while index < len(reversed_str):
+            value = reversed_str[index]
+            if value in hex_keys:
+                print(hex_keys[value])
+                total += hex_keys[value] * pow(base, exponent)
+            index += 1
+            exponent += 1
+        return total
+
     while index < len(reversed_str):
         if reversed_str[index] == "1":
             total += pow(base, exponent)
