@@ -11,6 +11,9 @@ def decode(str_num, base):
     """
     assert 2 <= base <= 36
 
+    if base == 10:
+        return(int(str_num))
+
     # Reverse string
     reversed_str = str_num[::-1]
 
