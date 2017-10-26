@@ -2,6 +2,8 @@
 
 import string
 
+# hex_keys out here
+# HEX_KEYS
 
 def decode(str_num, base):
     """
@@ -16,6 +18,11 @@ def decode(str_num, base):
 
     # Reverse string
     reversed_str = str_num[::-1]
+
+    # mutates string
+    # str_num.reverse()
+    # copies string
+    reverse_str3 = reversed(str_num)
 
     index = 0
     exponent = 0
@@ -41,6 +48,11 @@ def decode(str_num, base):
             "f": 15
         }
 
+        # TODOS:
+        # Refactor to have common cases
+        # NICE TO HAVES:
+        # check hex_keys for upper/lowercase input
+
         while index < len(reversed_str):
             value = reversed_str[index]
             if value in hex_keys:
@@ -50,6 +62,7 @@ def decode(str_num, base):
             exponent += 1
         return total
 
+    # Other base implementations
     while index < len(reversed_str):
         if reversed_str[index] == "1":
             total += pow(base, exponent)
@@ -66,7 +79,9 @@ def encode(num, base):
     base -- base to convert to
     """
     assert 2 <= base <= 36
-    # TODO: Encode number
+
+
+
 
 def convert(str_num, base1, base2):
     """
