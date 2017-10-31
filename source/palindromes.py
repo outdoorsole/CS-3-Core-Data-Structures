@@ -19,7 +19,31 @@ def is_palindrome(text):
 
 def is_palindrome_iterative(text):
     # TODO: implement the is_palindrome function iteratively here
-    pass 
+    if len(text) == 0 or len(text) == 1:
+        return True
+    elif len(text) > 1:
+        first_pos = 0
+        last_pos = -1
+
+        # If the string has an even number of characters
+        if len(text) % 2 == 0:
+            for index, value in enumerate(text):
+                # Check the first position and last position
+                if text[first_pos] == text[last_pos]:
+                    return True
+                else:
+                    first_pos += 1
+                    last_pos -= 1
+        # If the string has an odd number of characters
+        if len(text) % 2 == 1:
+            for index, value in enumerate(text):
+                # Check the first position and last position
+                if text[first_pos] == text[last_pos]:
+                    return True
+                else:
+                    first_pos += 1
+                    last_pos -= 1
+    return False
     # once implemented, change is_palindrome to call is_palindrome_iterative
     # to verify that your iterative implementation passes all tests
 
