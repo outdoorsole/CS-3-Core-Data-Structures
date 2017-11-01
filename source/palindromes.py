@@ -2,10 +2,9 @@
 
 import string
 # Hint: Use these string constants to ignore capitalization and/or punctuation
-# string.ascii_lowercase is 'abcdefghijklmnopqrstuvwxyz'
-# string.ascii_uppercase is 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-# string.ascii_letters is ascii_lowercase + ascii_uppercase
-
+string.ascii_lowercase is 'abcdefghijklmnopqrstuvwxyz'
+string.ascii_uppercase is 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+string.ascii_letters is ascii_lowercase + ascii_uppercase
 
 def is_palindrome(text):
     """A string of characters is a palindrome if it reads the same forwards and
@@ -13,7 +12,10 @@ def is_palindrome(text):
     # implement is_palindrome_iterative and is_palindrome_recursive below, then
     # change this to call your implementation to verify it passes all tests
     assert isinstance(text, str), 'input is not a string: {}'.format(text)
-    return is_palindrome_iterative(text.lower())
+    # clean text before passing it to palindrome function
+    parsed_text = text.lower().strip()
+
+    return is_palindrome_iterative(parsed_text)
     # return is_palindrome_recursive(text)
 
 
