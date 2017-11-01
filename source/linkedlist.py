@@ -18,6 +18,8 @@ class LinkedList(object):
         """Initialize this linked list and append the given items, if any."""
         self.head = None  # First node
         self.tail = None  # Last node
+        # Challenge - create size property that tracks list length in
+        # O(1) constant time
         self.size = 0  # Number of nodes
         # Append the given items
         if iterable is not None:
@@ -102,6 +104,8 @@ class LinkedList(object):
         else:
             # Otherwise insert new node after tail
             self.tail.next = new_node
+        # Update the size of the linked list (because node was added)
+        self.size += 1
         # Update tail to new node regardless
         self.tail = new_node
 
@@ -117,6 +121,8 @@ class LinkedList(object):
         else:
             # Otherwise insert new node before head
             new_node.next = self.head
+        # Update the size of the linked list (because node was added)
+        self.size += 1
         # Update head to new node regardless
         self.head = new_node
 
@@ -189,9 +195,13 @@ class LinkedList(object):
                     previous.next = None
                 # Update tail to the previous node regardless
                 self.tail = previous
+             # Update the size of the linked list (because node was deleted)
+            self.size -= 1
         else:
             # Otherwise raise an error to tell the user that delete has failed
             raise ValueError('Item not found: {}'.format(item))
+
+
 
 
 def test_linked_list():
